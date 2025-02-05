@@ -1,13 +1,30 @@
 {% render 'partials/head.liquid' %}
 
+  <main>  
+    <article class="front">
+      <img src="/DUCK.svg" alt="duck">
+      <h1>{{ person.bio }}</h1>
+      <button>START</button>
+    </article>
 
-      <main>  
-        <article>
-          <img src="/DUCK.svg" alt="duck">
-          <H1>{{ person.bio }}</H1>
-          <button>start</button>
-        </article>
-      </main>
+    <article class="back">
+        <h2>{{ person.name }}</h2>
+        <p>{{ person.custom.loves }}</p>
+        <h3>about</h3>
+        <dl>
+          <dt>date of birth</dt>
+          <dd>{{ person.birthdate}}</dd>
+
+          <dt>located</dt>
+          <dd>Amsterdam</dd>
+
+          <dt>Skill set</dt>
+          <dd>frontend design & development</dd>
+        </dl>
+        <button>BACK</button>
+    </article>
+  </main>
+
 {% render 'partials/foot.liquid' %}
 
 
