@@ -1,5 +1,8 @@
 // Importeer het npm package Express (uit de door npm aangemaakte node_modules map)
 // Deze package is geïnstalleerd via `npm install`, en staat als 'dependency' in package.json
+
+// C: import will load the library for example
+
 import express from 'express'
 
 // Importeer de Liquid package (ook als dependency via npm geïnstalleerd)
@@ -7,6 +10,7 @@ import { Liquid } from 'liquidjs';
 
 
 // Vul hier jouw eigen ID in (zie de instructies in de leertaak)
+// C: const prevents the personID from changing or be moved, unless if it's an object, but in this case it isn't. I also tell the const what number my personID is.
 const personID = 148
 
 // Doe een fetch naar een URL op de WHOIS API, ga pas verder als de fetch gelukt is
@@ -15,6 +19,7 @@ const personResponse = await fetch('https://fdnd.directus.app/items/person/' + p
 // Lees van de response van die fetch het JSON object in, waar we iets mee kunnen doen
 const personResponseJSON = await personResponse.json()
 
+personResponseJSON.data.custom = JSON.parse(personResponseJSON.data.custom);
 // Controleer eventueel de data in je console
 // (Let op: dit is _niet_ de console van je browser, maar van NodeJS, in je terminal)
 // console.log(personResponseJSON)
@@ -43,6 +48,11 @@ app.get('/', async function (request, response) {
    response.render('index.liquid', {person: personResponseJSON.data})
 })
 
+app.get('/oefenen', async function (request, response) {
+  // Render index.liquid uit de Views map en geef de opgehaalde data mee, in een variabele genaamd person
+  response.render('oefenen.liquid', {person: personResponseJSON.data})
+})
+
 // Had je meer pagina's in je oude visitekaartje? Zoals een contact.html?
 // Maak daar dan meer Routes voor aan, en koppel ze aan Views
 // app.get('/contact', function (request, response) {
@@ -56,6 +66,12 @@ app.post('/', async function (request, response) {
   // Je zou hier data kunnen opslaan, of veranderen, of wat je maar wilt
   // Er is nog geen afhandeling van een POST, dus stuur de bezoeker terug naar /
   response.redirect(303, '/')
+})
+
+app.post('/oefenen.liquid', async function (request, response) {
+  // Je zou hier data kunnen opslaan, of veranderen, of wat je maar wilt
+  // Er is nog geen afhandeling van een POST, dus stuur de bezoeker terug naar /
+  response.redirect(303, '/oefenen')
 })
 
 // Stel het poortnummer in waar Express op moet gaan luisteren
