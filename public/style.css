@@ -2,11 +2,11 @@
 
     /* PRIMARY FONTS STAND OUT */
     font-family: "Jaro";
-    src: url(/Jaro/) format(TrueType);
+    src: url(/public/Jaro/Jaro-Regular-VariableFont_opsz.ttf) format(TrueType);
 
     /* SECUNDAIRE FONTS STAND OUT */
     font-family: "Faster One";
-    src: url(/public/Faster_One/) format(TrueType);
+    src: url(/Faster_One/) format(TrueType);
 
     /* FONTS TEXT  */
     font-family: "Gemunu Libre";
@@ -44,22 +44,66 @@ body{
 
 
 /* CARD */
-main{
-    display: flex;
+.flip-card{
+    background-color: transparent;
+    margin: auto;
+    width: 18rem;
+    height: 30rem;
+
+    /* display: flex;
     position: relative;
     justify-content: center;
     align-items: center;
     top: 10%;
-    margin: auto;
-    width: 18rem;
-    height: 30rem;
     background-color: var(--first-background-color);
+    background-image: url("/public/blocks.svg"); */
+
+    perspective: 1000px; /* gives a 3D effect*/
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+    position: absolute;
     border-radius: 1rem;
-    background-image: url("/public/blocks.svg");
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
+}
+
+.flip-card-front {
+    background-color: var(--first-background-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: absolute;
+}
+
+/* FRONT */
+.flip-card-back {
+    background-color: var(--first-background-color);
+    transform: rotateY(180deg);
+    position: relative;
+    margin-left: 6rem;
 }
 
 h1{
-    color: var(--first-text-color)
+    color: var(--first-text-color);
+    font-family: var(--primary-fonts);
+    
 }
 
 button{
@@ -69,31 +113,13 @@ button{
     border: none;
 }
 
-
-/* FRONT CARD */
-.front{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+/* BACK */
+.flip-card-inner-back {
     position: absolute;
-    top: 30%;
-    display: none;
-}
-
-/* BACK CARD */
-.back{
     margin-left: 2rem;
-    /* display: flex;
-    flex-direction: column; */
-    /* justify-content: center; */
-    /* align-items: center;
-    text-align: left;
-    position: absolute;
-    top: 30%; */
-
+    top: 20%;
 }
+
 
 h2{
     color: var(--first-text-color);

@@ -1,28 +1,32 @@
 {% render 'partials/head.liquid' %}
 
-  <main>  
-    <article class="front">
-      <img src="/DUCK.svg" alt="duck">
-      <h1>{{ person.bio }}</h1>
-      <button>START</button>
-    </article>
+  <main class="flip-card">  
+    <div class="flip-card-inner">
+      <article class="flip-card-front">
+        <img src="/DUCK.svg" alt="duck">
+        <h1>{{ person.bio }}</h1>
+        <button>START</button>
+      </article>
 
-    <article class="back">
-        <h2>{{ person.name }}</h2>
-        <p class="custom">{{ person.custom.loves }}</p>
-        <h3>about</h3>
-        <dl>
-          <dt>date of birth</dt>
-          <dd>{{ person.birthdate}}</dd>
+      <article class="flip-card-back">
+        <div class="flip-card-inner-back">
+          <h2>{{ person.name }}</h2>
+          <p class="custom">{{ person.custom.loves }}</p>
+          <h3>about</h3>
+          <dl>
+            <dt>date of birth</dt>
+            <dd>{{ person.birthdate}}</dd>
 
-          <dt>located</dt>
-          <dd>Amsterdam</dd>
+            <dt>located</dt>
+            <dd>Amsterdam</dd>
 
-          <dt>Skill set</dt>
-          <dd>frontend design & development</dd>
-        </dl>
-        <button>BACK</button>
-    </article>
+            <dt>Skill set</dt>
+            <dd>frontend design & development</dd>
+          </dl>
+          <button>BACK</button>
+        </div>
+      </article>
+    </div>
   </main>
 
 {% render 'partials/foot.liquid' %}
