@@ -55,6 +55,7 @@ main{
     height: 30rem;
     background-color: var(--first-background-color);
     border-radius: 1rem;
+    background-image: url("/public/blocks.svg");
 }
 
 h1{
@@ -78,9 +79,70 @@ button{
     text-align: center;
     position: absolute;
     top: 30%;
+    display: none;
 }
 
 /* BACK CARD */
 .back{
-    display: none;
+    margin-left: 2rem;
+    /* display: flex;
+    flex-direction: column; */
+    /* justify-content: center; */
+    /* align-items: center;
+    text-align: left;
+    position: absolute;
+    top: 30%; */
+
 }
+
+h2{
+    color: var(--first-text-color);
+}
+
+.custom {
+    color: var(--first-text-color);
+}
+
+h3{
+    color: var(--third-text-color);
+}
+
+h3::after{
+    content: "{";
+    color: var(--second-highlight-color);
+    margin-left: 0.5rem;
+}
+
+dl{
+    display: grid;
+    grid-template-columns: 6rem 10rem;
+    grid-template-rows: 1.5rem 1.5rem;
+    font-size: var(--text-size-s);
+}
+
+/* dl{
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 12rem;
+    font-size: var(--text-size-s);
+} */
+
+dt{
+    color: var(--fourth-text-color);
+}
+
+dt::after{
+    content: ":";
+    color: var(--first-text-color);
+}
+
+dd{
+    margin-left: 8px;
+    color: var(--fifth-text-color);
+}
+
+dd::after{
+    content: ";";
+    color: var(--first-text-color);
+}
+
